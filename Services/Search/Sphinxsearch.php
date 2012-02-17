@@ -49,6 +49,7 @@ class Sphinxsearch
 	 * @param string $port The port that the server is listening on.
 	 * @param string $socket The UNIX socket that the server is listening on.
 	 * @param array $indexes The list of indexes that can be used.
+	 * @return Sphinxsearch
 	 */
 	public function __construct($host = 'localhost', $port = '9312', $socket = null, array $indexes = array())
 	{
@@ -62,16 +63,21 @@ class Sphinxsearch
 			$this->sphinx->setServer($this->socket);
 		else
 			$this->sphinx->setServer($this->host, $this->port);
+			
+		return $this;
 	}
 
 	/**
      * Set the desired match mode.
      *
 	 * @param int $mode The matching mode to be used.
+	 * @return Sphinxsearch
 	 */
 	public function setMatchMode($mode)
 	{
 		$this->sphinx->setMatchMode($mode);
+		
+		return $this;
 	}
 
 	/**
@@ -80,10 +86,13 @@ class Sphinxsearch
 	 * @param string $attribute The attribute to filter.
 	 * @param array $values The values to filter.
 	 * @param bool $exclude Is this an exclusion filter?
+	 * @return Sphinxsearch
 	 */
 	public function setFilter($attribute, $values, $exclude = false)
 	{
 		$this->sphinx->setFilter($attribute, $values, $exclude);
+		
+		return $this;
 	}
 
 	/**
