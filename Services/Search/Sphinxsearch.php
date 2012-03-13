@@ -95,6 +95,18 @@ class Sphinxsearch
 		return $this;
 	}
 
+    /**
+     * Reset defined filters.
+     *
+     * @return Sphinxsearch
+     */
+    public function resetFilters()
+    {
+        $this->sphinx->resetFilters();
+
+        return $this;
+    }
+
 	/**
      * Search for the specified query string.
      *
