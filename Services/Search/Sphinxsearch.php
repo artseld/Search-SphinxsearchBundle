@@ -107,6 +107,16 @@ class Sphinxsearch
         return $this;
     }
 
+    /**
+     * Build Excerpts.
+     *
+     * @return array
+     */
+    public function buildExcerpts( $docs, $index, $words, $opts = array() )
+    { 
+        return $this->sphinx->BuildExcerpts( $docs, $index, $words, $opts );
+    }
+
 	/**
      * Search for the specified query string.
      *
