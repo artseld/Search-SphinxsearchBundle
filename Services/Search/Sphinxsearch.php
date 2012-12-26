@@ -38,7 +38,7 @@ class Sphinxsearch
 	private $indexes;
 
 	/**
-	 * @var SphinxClient $sphinx
+	 * @var \SphinxClient $sphinx
 	 */
 	private $sphinx;
 
@@ -171,5 +171,13 @@ class Sphinxsearch
 		 * FIXME: Throw an exception if $results is empty?
 		 */
 		return $results;
+	}
+
+	/**
+	 * @return \SphinxClient
+	 */
+	public function getSphinx()
+	{
+		return $this->sphinx;
 	}
 }
